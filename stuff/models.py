@@ -22,5 +22,5 @@ class User(models.Model):
 class reviews(models.Model)
 	title = models.CharField(max_length = 40, required=TRUE)
 	body = models.CharField(max_length = 250, required=TRUE)
-	review_rating = models.IntegerField(validators=[MinValueValdator(0), MaxValueValidator(5)])
+	review_rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
  
