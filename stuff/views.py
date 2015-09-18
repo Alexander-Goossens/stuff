@@ -1,8 +1,9 @@
 import django.http import JsonResponse
 from django.contrib.auth import hashers
 from django import db
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from stuff import models
 
@@ -39,4 +40,7 @@ def userlogin(request):
 			return HttpResponse("Wrong login info.")
 	else:
 		return _error_response(request, "must make POST requesT")
-
+@login_required
+def userlogout(request):
+	logout(request)	
+	return HttpResponse("logged out") 
