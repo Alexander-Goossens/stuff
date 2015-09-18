@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class User(models.Model):
 	Artist = 'artist'
@@ -17,4 +18,9 @@ class User(models.Model):
 	is_active = models.BooleanField()
 	type_of_user = modelsCharField(max_length=2, choices=Type_Of_User_List, default=General)
 	type_of_instrument=(models.Charfield(max_length=16)
+
+class reviews(models.Model)
+	title = models.CharField(max_length = 40, required=TRUE)
+	body = models.CharField(max_length = 250, required=TRUE)
+	review_rating = models.IntegerField(validators=[MinValueValdator(0), MaxValueValidator(5)])
  
